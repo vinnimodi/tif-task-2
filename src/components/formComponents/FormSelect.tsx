@@ -68,11 +68,10 @@ const FormSelect: React.FC<IFormSelectProps> = ({
             minWidth: "272px",
             height: "45px",
             border: isFocused
-              ? `1px solid ${theme.colors.primary}`
-              : error
-              ? `1px solid ${theme.colors.errorRed}`
-              : "1px solid #c0bcd7",
-            backgroundColor: theme.colors.inputBg,
+            ? `1px solid ${theme.colors.primary}`
+            : error
+            ? `1px solid ${theme.colors.errorRed}`
+            : "1px solid #c0bcd7",
             borderRadius: "10px",
             fontSize: ".875rem",
             fontWeight: "500",
@@ -88,6 +87,9 @@ const FormSelect: React.FC<IFormSelectProps> = ({
             ...base,
             fontSize: ".875rem",
             fontWeight: "500",
+            backgroundColor:"red",
+            zIndex: 999,
+            position: "relative",
           }),
         }}
         {...selectProps}

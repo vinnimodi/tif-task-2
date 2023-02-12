@@ -11,6 +11,7 @@ import { genderOptions, urgencyOptions } from "./constants";
 const RequisitionDetailsForm: React.FC<{
   handleTab: (n: PageNumbers) => void;
 }> = ({ handleTab }) => {
+  const [globReq, setGlobReq] = React.useState()
   const {
     handleChange,
     errors,
@@ -39,10 +40,14 @@ const RequisitionDetailsForm: React.FC<{
       gender: Yup.string().required("Gender is required"),
     }),
     onSubmit: (values) => {
+      console.log(values);
       handleTab(1);
     },
   });
-
+  React.useEffect(() => {
+    setGlobReq(values)
+  }, [values])
+  
   return (
     <Box width="100%" as="form" onSubmit={handleSubmit as any}>
       <Box width="100%">

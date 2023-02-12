@@ -13,9 +13,10 @@ import {
 import React, { useState } from "react";
 import InterviewSettingsForm from "./InterviewSettingsForm";
 import JobDetailsForm from "./JobDetailsForm";
-import RequisitionForm from "./RequisitionDetailsForm";
+import RequisitionDetailsForm from "./RequisitionDetailsForm";
 import DisplayCard from "./PreviewCard";
 import { PageNumbers } from "../../interface/home";
+import { IRequisitionDetails } from "@src/interface/forms";
 
 const CustomTab: React.FC<TabProps> = ({ children, ...props }) => {
   return (
@@ -24,14 +25,21 @@ const CustomTab: React.FC<TabProps> = ({ children, ...props }) => {
     </Tab>
   );
 };
-
+function getReq(){
+  
+}
 const HomeLayout = () => {
   const [page, setPage] = useState<PageNumbers>(0);
 
   const handlePage = (pageNumber: PageNumbers) => {
     setPage(pageNumber);
   };
-
+  // const requisitionDetails: IRequisitionDetails = {
+  //   requisitionTitle,
+  //   gender,
+  //   urgency,
+  //   noOfOpenings
+  // }
   return (
     <Box w="100%">
       <Container maxW="1200px">
@@ -47,7 +55,7 @@ const HomeLayout = () => {
           <Grid display="grid" gridTemplateColumns="3fr 2fr" gap="24px">
             <TabPanels>
               <TabPanel>
-                <RequisitionForm handleTab={handlePage} />
+                <RequisitionDetailsForm handleTab={handlePage} />
               </TabPanel>
               <TabPanel>
                 <JobDetailsForm handleTab={handlePage} />
